@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by TEMPLATED
+http://templated.co
+Released for free under the Creative Commons Attribution License
+
+Name       : Big Business
+Description: A two-column, fixed-width design with a bright color scheme.
+Version    : 1.0
+Released   : 20120210
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<title>Bigbusiness by TEMPLATED</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" />
+<style>
+    .inputdeg{
+        height:30px;
+        width:300px;
+        margin:2px;
+    }
+    .btn{
+        height:30px;
+        width:300px;
+        background-color: #209D9D;
+        border: 0px;
+        margin: 2px;;
+    }
+</style>
+<script src="myscript.js"></script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1><a href="#">Big Business</a></h1>
+		</div>
+		<div id="slogan">
+			<h2>Design by TEMPLATED</h2>
+		</div>
+	</div>
+	<div id="menu">
+		<ul>
+			<li class="first current_page_item"><a href="home.html">Homepage</a></li>
+			<li><a href="userRegistrationForm.html">User Registration Form</a></li>
+			<li><a href="userLogin.html">User Login</a></li>
+			<li><a href="#">Clients</a></li>
+			<li><a href="#">Support</a></li>
+			<li><a href="#">About</a></li>
+			<li class="last"><a href="#">Contact</a></li>
+		</ul>
+	</div>
+	<div>
+        <br><br>
+        <center><h2>Registration Form</h2></center>
+        <center>
+            <form action="home.html" onsubmit="return validation()">
+                <table>
+                    <tr>
+                        <td>Enter Username</td>
+                        <td><input onkeyup="usernamestatus()" id="username" class="inputdeg" type="text" placeholder="Enter Username" name="username">
+                        <span id="udisplay" style="color:red">*</span></td>
+                    </tr>
+                    <tr>
+                        <td>Enter Email Id</td>
+                        <td><input onkeyup="emailstatus()" id="email" class="inputdeg" type="email" placeholder="Enter Email Id" name="email">
+                            <span id="edisplay" style="color:red">*</span></td>
+                    </tr>
+                    <tr>
+                        <td>Enter Password</td>
+                        <td><input onkeyup="passwordstatus()" id="password" class="inputdeg" type="password" placeholder="Enter Password" name="password">
+                            <span id="pdisplay" style="color:red">*</span></td>
+                    </tr>
+                    <tr>
+                        <td>Enter Date of Birth</td>
+                        <td><input id="date" class="inputdeg" type="date" name="date"></td>
+                    </tr>
+                    <tr>
+                        <td>Select Gender</td>
+                        <td><input onclick="genderstatus()" type="radio" value="male" name="gender" id="male">
+                            <label for="male">Male</label>
+                            <input onclick="genderstatus()" type="radio" value="female" name="gender" id="female">
+                        <label for="female">Female</label>
+                        <span id="gdisplay" style="color:red">*</span></td>
+                    </tr>
+                    <tr>
+                        <td>Enter Address</td>
+                        <td><textarea onkeyup="addressstatus()" id="address" name="address" class="inputdeg"></textarea>
+                            <span id="adisplay" style="color:red">*</span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input class="btn" type="submit" value="Submit"><br>
+                            <input class="btn" type="reset" value="Reset"></td>
+                    </tr>
+                </table>
+            </form>
+        </center>
+    </div>
+</div>
+<div id="footer">
+	&copy; Untitled. All rights reserved. Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.
+</div>
+</body>
+</html>
