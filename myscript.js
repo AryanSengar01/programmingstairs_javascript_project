@@ -211,3 +211,26 @@ function addressstatus(){
         return true;
     }
 }
+
+function checkLogin(){
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+
+    arr = JSON.parse(localStorage.getItem("app_data"));
+    for(var index in arr){
+        if(arr[index].email==email && arr[index].password==password)
+            return true;
+        else
+            return false;
+    }    
+}
+
+function checkAdminLogin(){
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+
+        if(email=="admin@gmail.com" && password=="Admin@123")
+            return true;
+        else
+            return false;
+    }    

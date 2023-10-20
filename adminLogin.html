@@ -17,7 +17,7 @@ Released   : 20120210
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="style.css" />
 <style>
-    #inputdeg{
+    .inputdeg{
         height:30px;
         width:300px;
         margin:2px;
@@ -56,15 +56,15 @@ Released   : 20120210
         <br><br>
         <center><h2>Admin Login</h2></center>
         <center>
-            <form action="">
+            <form action="adminhome.html" onsubmit="return checkAdminLogin()">
                 <table>
                     <tr>
                         <td>Enter Email Id</td>
-                        <td><input id="inputdeg" type="email" placeholder="Enter Email Id" name="email"></td>
+                        <td><input class="inputdeg" id="email" type="email" placeholder="Enter Email Id" name="email"></td>
                     </tr>
                     <tr>
                         <td>Enter Password</td>
-                        <td><input id="inputdeg" type="password" placeholder="Enter Password" name="password"></td>
+                        <td><input class="inputdeg" id="password" type="password" placeholder="Enter Password" name="password"></td>
                     </tr>
                     <tr>
                         <td></td>
