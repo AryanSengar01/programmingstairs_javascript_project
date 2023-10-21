@@ -229,7 +229,7 @@ function checkAdminLogin(){
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
 
-        if(email=="admin@gmail.com" && password=="Admin@123")
+        if(email=="admin@gmail.com" && password=="admin@123")
             return true;
         else
             return false;

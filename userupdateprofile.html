@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by TEMPLATED
+http://templated.co
+Released for free under the Creative Commons Attribution License
+
+Name       : Big Business
+Description: A two-column, fixed-width design with a bright color scheme.
+Version    : 1.0
+Released   : 20120210
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<title>Bigbusiness by TEMPLATED</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" />
+<style>
+    .inputdeg{
+        height:30px;
+        width:300px;
+        margin:2px;
+    }
+    .btn{
+        height:30px;
+        width:300px;
+        background-color: #209D9D;
+        border: 0px;
+        margin: 2px;;
+    }
+</style>
+<script>
+    function validation(){
+        var username = usernamestatus();
+        var email = emailstatus();
+        var password = passwordstatus();
+        var date = datestatus();
+        var gender = genderstatus();
+        var address = addressstatus();
+
+        var udisplay = document.getElementById("udisplay");
+        var edisplay = document.getElementById("edisplay");
+        var pdisplay = document.getElementById("pdisplay");
+        var ddisplay = document.getElementById("ddisplay");
+        var gdisplay = document.getElementById("gdisplay");
+        var adisplay = document.getElementById("adisplay");
+
+        if(username==false)
+        {
+            if(email==false)
+            edisplay.innerHTML="*";
+
+            if(password==false)
+            pdisplay.innerHTML="*";
+
+            if(date==false)
+            ddisplay.innerHTML="*";
+
+            if(gender==false)
+            gdisplay.innerHTML="*";
+
+            if(address==false)
+            adisplay.innerHTML="*";
+
+            return false;
+        }
+        if(email==false)
+        {
+            if(password==false)
+            pdisplay.innerHTML="*";
+
+            if(date==false)
+            ddisplay.innerHTML="*";
+
+            if(gender==false)
+            gdisplay.innerHTML="*";
+
+            if(address==false)
+            adisplay.innerHTML="*";
+
+            return false;
+        }
+        if(password==false)
+        {
+            if(date==false)
+            ddisplay.innerHTML="*";
+
+            if(gender==false)
+            gdisplay.innerHTML="*";
+
+            if(address==false)
+            adisplay.innerHTML="*";
+
+            return false;
+        }
+        if(date==false)
+        {
+            if(gender==false)
+            gdisplay.innerHTML="*";
+
+            if(address==false)
+            adisplay.innerHTML="*";
+
+            return false;
+        }
+        if(gender==false)
+        {
+            if(address==false)
+            adisplay.innerHTML="*";
+
+            return false;
+        }
+        if(address==false)
+        {
+            return false;
+        }
+    }
+    function usernamestatus(){
+        var username = document.getElementById("username");
+        var udisplay = document.getElementById("udisplay");
+
+        if(username.value.trim()=="")
+        {
+            udisplay.innerHTML="Username Required";
+            udisplay.style.color="red";
+            return false;
+        }
+        else
+        {
+            udisplay.innerHTML="";
+            return true;
+        }
+    }
+    function emailstatus(){
+        var email = document.getElementById("email");
+        var edisplay = document.getElementById("edisplay");
+
+        if(email.value.trim()=="")
+        {
+            edisplay.innerHTML="Email Required";
+            edisplay.style.color="red";
+            return false;
+        }
+        else
+        {
+            var reg=/^[\w\.-]+@gmail.com$/;
+
+            if(reg.test(email.value))
+            {
+                edisplay.innerHTML="Valid";
+                edisplay.style.color="green";
+                return true;
+            }
+            else
+            {
+                edisplay.innerHTML="Invalid";
+                edisplay.style.color="red";
+                return false;
+            }
+        }
+    }
+    function passwordstatus(){
+        var password = document.getElementById("password");
+        var pdisplay = document.getElementById("pdisplay");
+
+        if(password.value.trim()=="")
+        {
+            pdisplay.innerHTML="Password Required";
+            pdisplay.style.color="red";
+            return false;
+        }
+        else
+        {
+            var reg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+
+            if(reg.test(password.value))
+            {
+                pdisplay.innerHTML="Valid";
+                pdisplay.style.color="green";
+                return true;
+            }
+            else
+            {
+                pdisplay.innerHTML="Invalid";
+                pdisplay.style.color="red";
+                return false;
+            }
+        }
+    }
+    function datestatus(){
+        var date = document.getElementById("date");
+        var ddisplay = document.getElementById("ddisplay");
+
+        
+    }
+    function genderstatus(){
+        var male = document.getElementById("male");
+        var female = document.getElementById("female");
+        var gdisplay = document.getElementById("gdisplay");
+
+        if(male.checked==false && female.checked==false)
+        {
+            gdisplay.innerHTML="Please Select Gender";
+            gdisplay.style.color="red";
+            return false;
+        }
+        else
+        {
+            gdisplay.innerHTML="";
+            return true;
+        }
+    }
+    function addressstatus(){
+        var address = document.getElementById("address");
+        var adisplay = document.getElementById("adisplay");
+
+        if(address.value.trim()=="")
+        {
+            adisplay.innerHTML="Address Required";
+            adisplay.style.color="red";
+            return false;
+        }
+        else
+        {
+            adisplay.innerHTML="";
+            return true;
+        }
+    }
+</script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1><a href="#">Big Business</a></h1>
+		</div>
+		<div id="slogan">
+			<h2>Design by TEMPLATED</h2>
+		</div>
+	</div>
+	<div id="menu">
+		<ul>
+			<li class="first current_page_item"><a href="userhome.html">Homepage</a></li>
+			<li><a href="userupdatepassword.html">Update Password</a></li>
+			<li><a href="userupdateprofile.html">Update Profile</a></li>
+			<li><a href="#">Logout</a></li>
+		</ul>
+	</div>
+	<div>
+        <br><br>
+        <center><h2>Update Profile</h2></center>
+        <center>
+            <form action="xyz.html" onsubmit="return validation()">
+                <table>
+                    <tr>
+                        <td>Enter Username</td>
+                        <td><input onkeyup="usernamestatus()" id="username" class="inputdeg" type="text" placeholder="Enter Username" name="uname">
+                        <span id="udisplay" style="color:red">*</span></td>
+                    </tr>
+                    <tr>
+                        <td>Enter Email Id</td>
+                        <td><input onkeyup="emailstatus()" id="email" class="inputdeg" type="email" placeholder="Enter Email Id" name="email">
+                            <span id="edisplay" style="color:red">*</span></td>
+                    </tr>
+                    <tr>
+                        <td>Enter Password</td>
+                        <td><input onkeyup="passwordstatus()" id="password" class="inputdeg" type="password" placeholder="Enter Password" name="password">
+                            <span id="pdisplay" style="color:red">*</span></td>
+                    </tr>
+                    <tr>
+                        <td>Enter Date of Birth</td>
+                        <td><input onclick="datestatus()" id="date" class="inputdeg" type="date" name="date">
+                            <span id="ddisplay" style="color:red">*</span></td>
+                    </tr>
+                    <tr>
+                        <td>Select Gender</td>
+                        <td><input onclick="genderstatus()" type="radio" value="male" name="gender" id="male">
+                            <label for="male">Male</label>
+                            <input onclick="genderstatus()" type="radio" value="female" name="gender" id="female">
+                        <label for="female">Female</label>
+                        <span id="gdisplay" style="color:red">*</span></td>
+                    </tr>
+                    <tr>
+                        <td>Enter Address</td>
+                        <td><textarea onkeyup="addressstatus()" id="address" name="address" class="inputdeg"></textarea>
+                            <span id="adisplay" style="color:red">*</span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input class="btn" type="submit" value="Submit"><br>
+                            <input class="btn" type="reset" value="Reset"></td>
+                    </tr>
+                </table>
+            </form>
+        </center>
+    </div>
+</div>
+<div id="footer">
+	&copy; Untitled. All rights reserved. Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.
+</div>
+</body>
+</html>
