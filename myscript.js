@@ -218,8 +218,10 @@ function checkLogin(){
 
     arr = JSON.parse(localStorage.getItem("app_data"));
     for(var index in arr){
-        if(arr[index].email==email && arr[index].password==password)
+        if(arr[index].email==email && arr[index].password==password){
+            sessionStorage.setItem("email",email); 
             return true;
+        }
         else
             return false;
     }    
@@ -234,3 +236,36 @@ function checkAdminLogin(){
         else
             return false;
     }    
+
+function userUpdate(){
+        /* main logic of user update*/
+        var gender;
+        var male = document.getElementById("male");
+        var female = document.getElementById("female");
+        if(male.checked==true)
+            gender="male";
+        else    
+            gender="female";
+
+            var obj = {
+                username : document.getElementById("username").value,
+                email : document.getElementById("email").value,
+                password : document.getElementById("password").value,
+                date : document.getElementById("date").value,
+                gender: gender,
+                address:document.getElementById("address").value
+            }
+            var data = localStorage.getItem("app_data");
+                arr = JSON.parse(data);
+                for(i=0;i<arr.length;i++){
+                    if(arr[i].email==obj.email)
+                    {
+                        alert(i);
+                        arr.splice(i,1,obj);
+                        break;
+                    }
+                }
+
+                localStorage.setItem("app_data",JSON.stringify(arr));
+        /* main logic of update user data ends */
+}
