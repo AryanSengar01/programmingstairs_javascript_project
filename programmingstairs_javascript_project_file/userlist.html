@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<title>Bigbusiness by TEMPLATED</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script src="myscript.js"></script>
+<style>
+    #demo1{
+        margin: auto;
+    }
+    .inputdeg{
+        height:30px;
+        width:300px;
+        margin:2px;
+    }
+    .btn{
+        height:30px;
+        width:300px;
+        background-color: #209D9D;
+        border: 0px;
+        margin: 2px;;
+    }
+</style>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1><a href="#">Big Business</a></h1>
+		</div>
+		<div id="slogan">
+			<h2>Design by TEMPLATED</h2>
+		</div>
+	</div>
+	<div id="menu">
+		<ul>
+			<li class="first current_page_item"><a href="adminhome.html">Homepage</a></li>
+			<li><a href="adminupdatepassword.html">Update Password</a></li>
+			<li><a href="userlist.html">User Profiles</a></li>
+            <li><a href="#">User Profiles status</a></li>
+			<li><a href="#">Logout</a></li>
+		</ul>
+	</div>
+<br>
+<div id="demo"></div>
+<div id="demo1">
+    <center><h2>Update Profile Form</h2></center>
+    <center>
+        <form action="userlist.html" onsubmit="return userUpdate()">
+            <table>
+                <tr>
+                    <td>Enter Username</td>
+                    <td><input onkeyup="usernamestatus()" id="username" class="inputdeg" type="text" placeholder="Enter Username" name="username">
+                    <span id="udisplay" style="color:red">*</span></td>
+                </tr>
+                <tr>
+                    <td>Enter Email Id</td>
+                    <td><input readonly onkeyup="emailstatus()" id="email" class="inputdeg" type="email" placeholder="Enter Email Id" name="email">
+                        <span id="edisplay" style="color:red">*</span></td>
+                </tr>
+                <tr>
+                    <td>Enter Password</td>
+                    <td><input onkeyup="passwordstatus()" id="password" class="inputdeg" type="text" placeholder="Enter Password" name="password">
+                        <span id="pdisplay" style="color:red">*</span></td>
+                </tr>
+                <tr>
+                    <td>Enter Date of Birth</td>
+                    <td><input id="date" class="inputdeg" type="date" name="date"></td>
+                </tr>
+                <tr>
+                    <td>Select Gender</td>
+                    <td><input onclick="genderstatus()" type="radio" value="male" name="gender" id="male">
+                        <label for="male">Male</label>
+                        <input onclick="genderstatus()" type="radio" value="female" name="gender" id="female">
+                    <label for="female">Female</label>
+                    <span id="gdisplay" style="color:red">*</span></td>
+                </tr>
+                <tr>
+                    <td>Enter Address</td>
+                    <td><textarea onkeyup="addressstatus()" id="address" name="address" class="inputdeg"></textarea>
+                        <span id="adisplay" style="color:red">*</span></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input class="btn" type="submit" value="Submit"><br>
+                        <input class="btn" type="reset" value="Reset"></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+
+</div>
+<script>
+            var demo1 = document.getElementById("demo1");
+            demo1.style.display="none";
+
+        function updateData(index){
+            //alert(index);
+            var demo = document.getElementById("demo");
+            demo.style.display="none";
+            demo1.style.display="block";
+            var arr = JSON.parse(localStorage.getItem("app_data"));
+            console.log(arr[index]);
+            
+            document.getElementById("username").value=arr[index].username;
+            document.getElementById("email").value=arr[index].email;
+            document.getElementById("password").value=arr[index].password;
+            document.getElementById("date").value=arr[index].date;
+           
+            if(arr[index].gender=="male")
+                document.getElementById("male").checked=true;
+            else
+                document.getElementById("female").checked=true;
+            
+            document.getElementById("address").value=arr[index].address;
+        }
+
+        function deleteData(index){
+            var arr = JSON.parse(localStorage.getItem("app_data"));
+            arr.splice(index,1);
+            localStorage.setItem("app_data",JSON.stringify(arr));
+            alert("data deleted successfully");
+            window.location.href="file:///F:/JavaScript/CURD%20operation/programmingstairs_javascript_project/userlist.html";
+        } 
+
+        var arr = JSON.parse(localStorage.getItem("app_data"));
+        var table = "<table width='100%' border='1' cellpadding='10' cellspacing='0'><tr><th>Username</th><th>Email Id</th><th>Password</th><th>Date</th><th>Gender</th><th>Address</th><th>Image</th><th>Update</th><th>Delete</th></tr>";
+        for(var index in arr){
+            table+="<tr>";
+            for(var key in arr[index]){
+                console.log(key=="file");
+                if(key=="file")
+                    table+="<td><img height='100' width='100' src='"+arr[index][key]+"'></td>";
+                else
+                    table+="<td>"+arr[index][key]+"</td>";
+            }
+            table+=`<th><button onclick="updateData(${index})">Update</button></th>
+            <th><button onclick="deleteData(${index})">Delete</button></th></tr>`;
+        }
+        table+="</table>";
+
+        document.getElementById("demo").innerHTML=table;
+    </script>
+<br>
+
+
+</div>
+<div id="footer">
+	&copy; Untitled. All rights reserved. Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.
+</div>
+</body>
+</html>
