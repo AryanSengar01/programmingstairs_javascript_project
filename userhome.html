@@ -27,16 +27,14 @@ Released   : 20120210
 			<h2>Design by TEMPLATED</h2>
 		</div>
 	</div>
-	<script>
-		var email = sessionStorage.getItem("email");
-		document.getElementById("show").innerHTML=email;
-	</script>
+	
 	<div id="menu">
 		<ul>
+			<li id="show"></li>
 			<li class="first current_page_item"><a href="userhome.html">Homepage</a></li>
 			<li><a href="userupdatepassword.html">Update Password</a></li>
 			<li><a href="userupdateprofile.html">Update Profile</a></li>
-			<li><a href="#">Logout</a></li>
+			<li><a href="#" onclick="userLogout()">Logout</a></li>
 		</ul>
 		<br class="clearfix" />
 	</div>
@@ -129,5 +127,14 @@ Released   : 20120210
 <div id="footer">
 	&copy; Untitled. All rights reserved. Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.
 </div>
+<script>
+	var email = sessionStorage.getItem("email");
+	document.getElementById("show").innerHTML="Welcome "+email;
+	function userLogout(){
+		var email = sessionStorage.removeItem("email");
+		alert(email);
+		window.location.href='file:///F:/JavaScript/CURD%20operation/programmingstairs_javascript_project/index.html';
+	}
+</script>
 </body>
 </html>

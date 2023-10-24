@@ -16,7 +16,26 @@ Released   : 20120210
 <title>Bigbusiness by TEMPLATED</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="style.css" />
-<script src="myscript.js"></script>
+<script>
+    function checkLogin(){
+
+var email = document.getElementById("email").value;
+var password = document.getElementById("password").value;
+alert(email+"   "+password);
+arr = JSON.parse(localStorage.getItem("app_data"));
+console.log(arr);
+for(var index in arr){
+    if(arr[index].email==email && arr[index].password==password){
+        var a = sessionStorage.setItem("email",email);
+        alert("inside if "+a); 
+        return true;
+    }
+    else
+        return false;
+}    
+}
+
+</script>
 <style>
     .inputdeg{
         height:30px;
@@ -65,7 +84,7 @@ Released   : 20120210
                     </tr>
                     <tr>
                         <td>Enter Password</td>
-                        <td><input class="inputdeg" id="email" type="password" placeholder="Enter Password" name="password"></td>
+                        <td><input class="inputdeg" id="password" type="password" placeholder="Enter Password" name="password"></td>
                     </tr>
                     <tr>
                         <td></td>
@@ -74,7 +93,7 @@ Released   : 20120210
                     </tr>
                     <tr>
                         <td></td>
-                        <td>If you don't register yet so click on <a href="userRegistrationForm.html">Registration</a>.</td>
+                        <td>If you don't register yet so click on <a href="userregistrationform.html">Registration</a>.</td>
                     </tr>
                 </table>
             </form>

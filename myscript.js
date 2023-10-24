@@ -212,20 +212,6 @@ function addressstatus(){
     }
 }
 
-function checkLogin(){
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-
-    arr = JSON.parse(localStorage.getItem("app_data"));
-    for(var index in arr){
-        if(arr[index].email==email && arr[index].password==password){
-            sessionStorage.setItem("email",email); 
-            return true;
-        }
-        else
-            return false;
-    }    
-}
 
 function checkAdminLogin(){
     var email = document.getElementById("email").value;
@@ -246,6 +232,7 @@ function userUpdate(){
             gender="male";
         else    
             gender="female";
+
 
             var obj = {
                 username : document.getElementById("username").value,

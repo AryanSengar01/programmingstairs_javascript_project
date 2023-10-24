@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product Form</title>
+</head>
+<body>
+    <form id="productForm">
+        <!-- Other product fields go here -->
+
+        <!-- Input for image -->
+        <label for="productImage">Product Image:</label>
+        <input type="file" id="productImage" name="productImage" >
+
+        <button type="submit">Add Product</button>
+    </form>
+
+    <script>
+        document.getElementById('productForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Retrieve the selected image file
+           
+            const selectedImage = document.getElementById('productImage').files[0].name;
+
+            // You can now do something with the selected image, like uploading it to a server
+            console.log(selectedImage);
+        });
+    </script>
+</body>
+</html>
